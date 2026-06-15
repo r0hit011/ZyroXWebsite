@@ -69,8 +69,28 @@ transform:translateY(-500px);
 }
 }
 
+/* Logo */
+.logo{
+width:180px;
+height:180px;
+object-fit:cover;
+margin-bottom:20px;
+filter:drop-shadow(0 0 25px #ffffff);
+animation:floatLogo 3s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-12px);
+}
+}
+
+/* Hero Section */
 .hero{
-padding:120px 20px;
+padding:80px 20px;
 }
 
 h1{
@@ -99,6 +119,7 @@ font-size:20px;
 color:#cfcfcf;
 }
 
+/* Buttons */
 .btn{
 display:inline-block;
 margin-top:35px;
@@ -124,6 +145,7 @@ background:#ff4d6d;
 box-shadow:0 0 25px #ff4d6d;
 }
 
+/* Features */
 .features{
 padding:60px 20px;
 }
@@ -161,6 +183,8 @@ color:#999;
 <body>
 
 <div class="hero">
+
+<img src="https://i.ibb.co/VchB4Mcf/Zyro-Xav.jpg" alt="ZyroX Logo" class="logo">
 
 <h1>ZyroX</h1>
 
