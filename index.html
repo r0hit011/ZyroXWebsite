@@ -14,7 +14,7 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#050816;
+background:#000;
 color:white;
 text-align:center;
 overflow-x:hidden;
@@ -22,75 +22,50 @@ min-height:100vh;
 position:relative;
 }
 
-/* Animated Gradient Background */
+/* Animated Black Background */
 body::before{
 content:"";
 position:fixed;
 inset:0;
-background:linear-gradient(
--45deg,
-#5865F2,
-#9b59ff,
-#00d4ff,
-#ff4d6d
-);
-background-size:400% 400%;
-animation:gradientBG 15s ease infinite;
-z-index:-3;
+background:
+radial-gradient(circle at 20% 20%, rgba(88,101,242,.35), transparent 25%),
+radial-gradient(circle at 80% 30%, rgba(255,0,170,.25), transparent 25%),
+radial-gradient(circle at 50% 80%, rgba(0,255,255,.20), transparent 25%);
+animation:bgMove 12s ease-in-out infinite alternate;
+z-index:-2;
 }
 
-/* Floating Glow 1 */
 body::after{
 content:"";
 position:fixed;
-width:500px;
-height:500px;
-background:#5865F2;
-filter:blur(180px);
-border-radius:50%;
-top:-100px;
-left:-100px;
-animation:float1 12s ease-in-out infinite;
-opacity:.35;
-z-index:-2;
+inset:0;
+background-image:
+radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+radial-gradient(2px 2px at 100px 150px,#fff,transparent),
+radial-gradient(1px 1px at 200px 80px,#fff,transparent),
+radial-gradient(2px 2px at 300px 220px,#fff,transparent),
+radial-gradient(1px 1px at 400px 120px,#fff,transparent);
+background-size:500px 500px;
+animation:stars 20s linear infinite;
+opacity:.4;
+z-index:-1;
 }
 
-/* Floating Glow 2 */
-.glow{
-position:fixed;
-width:450px;
-height:450px;
-background:#ff4d6d;
-filter:blur(180px);
-border-radius:50%;
-bottom:-100px;
-right:-100px;
-animation:float2 14s ease-in-out infinite;
-opacity:.3;
-z-index:-2;
+@keyframes bgMove{
+0%{
+transform:scale(1) translate(0,0);
 }
-
-@keyframes gradientBG{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-@keyframes float1{
-0%,100%{
-transform:translate(0,0);
-}
-50%{
-transform:translate(250px,180px);
+100%{
+transform:scale(1.2) translate(-40px,40px);
 }
 }
 
-@keyframes float2{
-0%,100%{
-transform:translate(0,0);
+@keyframes stars{
+from{
+transform:translateY(0);
 }
-50%{
-transform:translate(-250px,-180px);
+to{
+transform:translateY(-500px);
 }
 }
 
@@ -102,11 +77,12 @@ h1{
 font-size:80px;
 background:linear-gradient(
 90deg,
+#5865F2,
+#9b59ff,
 #ffffff,
-#b9c6ff,
-#ffffff
+#5865F2
 );
-background-size:200% auto;
+background-size:300% auto;
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 animation:textGlow 4s linear infinite;
@@ -114,13 +90,13 @@ animation:textGlow 4s linear infinite;
 
 @keyframes textGlow{
 0%{background-position:0% center;}
-100%{background-position:200% center;}
+100%{background-position:300% center;}
 }
 
 .subtitle{
 margin-top:15px;
 font-size:20px;
-color:#e0e0e0;
+color:#cfcfcf;
 }
 
 .btn{
@@ -153,38 +129,36 @@ padding:60px 20px;
 }
 
 .features h2{
-margin-bottom:25px;
 font-size:35px;
+margin-bottom:25px;
 }
 
 .card{
 max-width:500px;
 margin:15px auto;
 padding:20px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,0.15);
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.12);
 border-radius:18px;
-transition:.3s;
 font-size:18px;
-box-shadow:0 0 20px rgba(255,255,255,.08);
+transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-8px) scale(1.03);
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(255,255,255,.15);
 }
 
 footer{
 margin-top:50px;
 padding:20px;
-color:#d0d0d0;
+color:#999;
 }
 </style>
 </head>
 
 <body>
-
-<div class="glow"></div>
 
 <div class="hero">
 
@@ -212,15 +186,25 @@ target="_blank">
 
 <h2>Features</h2>
 
-<div class="card">✅ Advanced Features</div>
+<div class="card">
+✅ Advanced Features
+</div>
 
-<div class="card">🎯 Anti-Nuke Protection</div>
+<div class="card">
+🎯 Anti-Nuke Protection
+</div>
 
-<div class="card">⚒️ Automation Tools</div>
+<div class="card">
+⚒️ Automation Tools
+</div>
 
-<div class="card">🎼 High Quality Music</div>
+<div class="card">
+🎼 High Quality Music
+</div>
 
-<div class="card">🎀 24/7 Uptime</div>
+<div class="card">
+🎀 24/7 Uptime
+</div>
 
 </div>
 
